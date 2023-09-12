@@ -2,6 +2,7 @@ import React from 'react';
 import Section from 'components/Section/Section';
 import FeedbackOptions from 'components/FeedbeackFormBtn/FeedbeackFormBtn';
 import Statistics from 'components/Statistics/Statistics';
+import { Wrapper } from 'AppStyled';
 
 class App extends React.Component {
   state = {
@@ -28,7 +29,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <Wrapper>
         <Section title={'Please leave feedback'}>
           <FeedbackOptions
             options={Object.keys(this.state)}
@@ -42,7 +43,7 @@ class App extends React.Component {
             totalPositivePercentage={this.totalPositivePercentage}
           />
         </Section>
-      </div>
+      </Wrapper>
     );
   }
 }

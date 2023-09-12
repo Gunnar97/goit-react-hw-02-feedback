@@ -1,9 +1,10 @@
 import React from 'react';
+import { Message } from './NotificationStyled';
 
 const Notification = ({ message }) => {
   return (
     <>
-      <p>{message}</p>
+      <Message>{message}</Message>
     </>
   );
 };

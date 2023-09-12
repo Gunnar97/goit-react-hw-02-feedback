@@ -1,9 +1,10 @@
 import React from 'react';
+import { CheckTitle } from './SectionStyled';
 
 const Section = ({ title, children }) => {
   return (
     <>
-      <h2>{title}</h2>
+      <CheckTitle>{title}</CheckTitle>
       <>{children}</>
     </>
   );

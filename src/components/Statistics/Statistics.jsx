@@ -1,28 +1,31 @@
 import React from 'react';
 import Notification from '../Notification/Notification';
 import PropTypes from 'prop-types';
+import { StatiList, StaticItem, StaticTitle } from './StatisticsStyled';
 
 const Statistics = ({ data, totalCount, totalPositivePercentage }) => {
   const dataStat = Object.entries(data);
   const statItem = dataStat.map(state => {
     return (
-      <li key={state[0]} id={state[0]}>
-        <span>{state[0]}: </span>
-        <span>{state[1]}</span>
-      </li>
+      <StaticItem key={state[0]} id={state[0]}>
+        <StaticTitle>{state[0]}: </StaticTitle>
+        <StaticTitle>{state[1]}</StaticTitle>
+      </StaticItem>
     );
   });
   return totalCount() ? (
     <>
-      <ul>{statItem}</ul>
-      <p>
-        <span>Total: </span>
-        <span>{totalCount()}</span>
-      </p>
-      <p>
-        <span>Positive feedback: </span>
-        <span>{totalPositivePercentage()}%</span>
-      </p>
+      <StatiList>{statItem}</StatiList>
+      <StatiList>
+        <StaticItem>
+          <StaticTitle>Total: </StaticTitle>
+          <StaticTitle>{totalCount()}</StaticTitle>
+        </StaticItem>
+        <StaticItem>
+          <StaticTitle>Positive feedback: </StaticTitle>
+          <StaticTitle>{totalPositivePercentage()}%</StaticTitle>
+        </StaticItem>
+      </StatiList>
     </>
   ) : (
     <Notification message={'There is no feedback'} />
