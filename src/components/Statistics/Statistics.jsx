@@ -13,7 +13,7 @@ const Statistics = ({ data, totalCount, totalPositivePercentage }) => {
       </StaticItem>
     );
   });
-  return totalCount() ? (
+  return (
     <>
       <StatiList>{statItem}</StatiList>
       <StatiList>
@@ -27,8 +27,6 @@ const Statistics = ({ data, totalCount, totalPositivePercentage }) => {
         </StaticItem>
       </StatiList>
     </>
-  ) : (
-    <Notification message={'There is no feedback'} />
   );
 };
 

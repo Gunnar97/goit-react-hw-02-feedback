@@ -3,6 +3,7 @@ import Section from 'components/Section/Section';
 import FeedbackOptions from 'components/FeedbeackFormBtn/FeedbeackFormBtn';
 import Statistics from 'components/Statistics/Statistics';
 import { Wrapper } from 'AppStyled';
+import Notification from 'components/Notification/Notification';
 
 class App extends React.Component {
   state = {
@@ -12,6 +13,8 @@ class App extends React.Component {
   };
 
   handleButtonClick = eve => {
+    console.log(eve.target);
+    console.log(eve.currentTarget);
     this.setState(prev => ({
       [eve.target.name]: prev[eve.target.name] + 1,
     }));
@@ -37,11 +40,15 @@ class App extends React.Component {
           />
         </Section>
         <Section title={'Statistics'}>
-          <Statistics
-            data={this.state}
-            totalCount={this.totalCount}
-            totalPositivePercentage={this.totalPositivePercentage}
-          />
+          {this.totalCount() ? (
+            <Statistics
+              data={this.state}
+              totalCount={this.totalCount}
+              totalPositivePercentage={this.totalPositivePercentage}
+            />
+          ) : (
+            <Notification message={'There is no feedback'} />
+          )}
         </Section>
       </Wrapper>
     );
