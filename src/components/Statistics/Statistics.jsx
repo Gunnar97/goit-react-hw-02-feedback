@@ -1,5 +1,4 @@
 import React from 'react';
-import Notification from '../Notification/Notification';
 import PropTypes from 'prop-types';
 import { StatiList, StaticItem, StaticTitle } from './StatisticsStyled';
 
