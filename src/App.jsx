@@ -25,6 +25,7 @@ class App extends React.Component {
     }));
   };
 
+  
   totalPositivePercentage = () => {
     return this.totalCount === 0
       ? 0
