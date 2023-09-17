@@ -12,13 +12,19 @@ class App extends React.Component {
     bad: 0,
   };
 
-  handleButtonClick = eve => {
-    console.log(eve.target);
-    console.log(eve.currentTarget);
-    this.setState(prev => ({
-      [eve.target.name]: prev[eve.target.name] + 1,
+  // handleButtonClick = eve => {
+  //   console.log(eve.target.name);
+  //   this.setState(prev => ({
+  //     [eve.target.name]: prev[eve.target.name] + 1,
+  //   }));
+  // };
+
+  handleLeaveFeedback = selectedOption => {
+    this.setState(prevState => ({
+      [selectedOption]: prevState[selectedOption] + 1,
     }));
   };
+
   totalPositivePercentage = () => {
     return this.totalCount === 0
       ? 0
@@ -36,7 +42,9 @@ class App extends React.Component {
         <Section title={'Please leave feedback'}>
           <FeedbackOptions
             options={Object.keys(this.state)}
-            onLeaveFeedback={this.handleButtonClick}
+            onLeaveFeedback={this.handleLeaveFeedback}
+
+            // onLeaveFeedback={this.handleButtonClick}
           />
         </Section>
         <Section title={'Statistics'}>

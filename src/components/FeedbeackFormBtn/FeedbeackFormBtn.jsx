@@ -7,10 +7,10 @@ const FeedbackOptions = ({ options, onLeaveFeedback }) => {
       <ChoosBtn
         type="button"
         key={state}
-        onClick={onLeaveFeedback}
-        name={state}
+        // onClick={() => onLeaveFeedback(state)}
+        // name={state}
       >
-        <TextBtn name={state} onClick={onLeaveFeedback}>
+        <TextBtn key={state} onClick={() => onLeaveFeedback(state)}>
           {state.toUpperCase()}
         </TextBtn>
       </ChoosBtn>
