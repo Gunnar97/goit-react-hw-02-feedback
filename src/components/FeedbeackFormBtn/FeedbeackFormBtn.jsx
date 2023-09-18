@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { ChoosBtn, TextBtn } from './FeedbeackFormBtnStyled';
 
 const FeedbackOptions = ({ options, onLeaveFeedback }) => {
+  console.log(options);
   const button = options.map(state => {
     return (
       <ChoosBtn
@@ -14,6 +16,11 @@ const FeedbackOptions = ({ options, onLeaveFeedback }) => {
     );
   });
   return <div>{button}</div>;
+};
+
+FeedbackOptions.propTypes = {
+  options: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  onLeaveFeedback: PropTypes.func.isRequired,
 };
 
 export default FeedbackOptions;
