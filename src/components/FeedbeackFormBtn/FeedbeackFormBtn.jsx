@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { ChoosBtn, TextBtn } from './FeedbeackFormBtnStyled';
 
 const FeedbackOptions = ({ options, onLeaveFeedback }) => {
-  console.log(options);
   const button = options.map(state => {
     return (
       <ChoosBtn
